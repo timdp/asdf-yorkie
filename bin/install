@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+BIN="$ASDF_INSTALL_PATH/bin"
+
+mkdir -p "$BIN"
+
+curl --silent --fail --show-error --location --output "$BIN/yorkie" \
+  "https://github.com/timdp/yorkie/raw/v$ASDF_INSTALL_VERSION/yorkie"
+
+chmod +x "$BIN/yorkie"

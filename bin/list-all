@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+curl --silent --fail --show-error --location 'https://api.github.com/repos/timdp/yorkie/tags' |
+  grep -Eo '"name": "v[0-9][0-9.+-]+"' |
+  grep -Eo '[0-9][^"]+' |
+  xargs
